@@ -1,2 +1,0 @@
-class CraftsController < ApplicationController
-end
