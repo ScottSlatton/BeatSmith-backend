@@ -1,3 +1,3 @@
 class BossSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :name, :health
 end
