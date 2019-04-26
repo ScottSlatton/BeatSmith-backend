@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_26_150901) do
+ActiveRecord::Schema.define(version: 2019_04_26_155334) do
 
   create_table "bosses", force: :cascade do |t|
     t.string "name"
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 2019_04_26_150901) do
     t.integer "damage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "friends", force: :cascade do |t|
+    t.integer "friender_id"
+    t.integer "friended_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friended_id"], name: "index_friends_on_friended_id"
+    t.index ["friender_id"], name: "index_friends_on_friender_id"
   end
 
   create_table "matches", force: :cascade do |t|
