@@ -5,6 +5,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.integer :level
       t.integer :experience
       t.string :friend_code
+      t.integer :highest_combo
+      t.integer :highest_score
 
       t.timestamps
     end
