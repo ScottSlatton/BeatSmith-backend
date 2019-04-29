@@ -1,4 +1,5 @@
 class Api::V1::MatchesController < ApplicationController
+    skip_before_action :authorized
    before_action :find_match, only:[:show]
     def index
         @Matches = Match.all
