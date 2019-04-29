@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :friend_code
       t.integer :highest_combo
       t.integer :highest_score
+      t.string :password_digest
 
       t.timestamps
     end

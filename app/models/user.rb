@@ -8,5 +8,6 @@ class User < ApplicationRecord
   
     has_many :friends, :class_name => 'Friend', :foreign_key => 'friender_id'
     has_many :friends, :class_name => 'Friend', :foreign_key => 'friended_id'
-
+    validates :username, uniqueness: { case_sensitive: false }
+    has_secure_password
 end
