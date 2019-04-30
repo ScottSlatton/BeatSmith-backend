@@ -17,16 +17,17 @@ ActiveRecord::Schema.define(version: 2019_04_26_175403) do
 
   create_table "bosses", force: :cascade do |t|
     t.string "name"
-    t.integer "level"
-    t.integer "health"
+    t.integer "level", default: 1
+    t.integer "health", default: 1
+    t.integer "exp_share", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "crafts", force: :cascade do |t|
     t.string "name"
-    t.integer "req_score"
-    t.integer "damage"
+    t.integer "req_score", default: 0
+    t.integer "damage", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,7 +43,7 @@ ActiveRecord::Schema.define(version: 2019_04_26_175403) do
 
   create_table "matches", force: :cascade do |t|
     t.bigint "team_id"
-    t.integer "score"
+    t.integer "score", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["team_id"], name: "index_matches_on_team_id"
@@ -65,11 +66,11 @@ ActiveRecord::Schema.define(version: 2019_04_26_175403) do
 
   create_table "users", force: :cascade do |t|
     t.string "username"
-    t.integer "level"
-    t.integer "experience"
+    t.integer "level", default: 1
+    t.integer "experience", default: 0
     t.string "friend_code"
-    t.integer "highest_combo"
-    t.integer "highest_score"
+    t.integer "highest_combo", default: 0
+    t.integer "highest_score", default: 0
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
