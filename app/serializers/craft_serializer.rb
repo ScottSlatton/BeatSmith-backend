@@ -1,3 +1,3 @@
 class CraftSerializer < ActiveModel::Serializer
-  attributes :id, :name, :damage
+  attributes :id, :name, :cost, :damage, :armor
 end

@@ -7,6 +7,10 @@ class Api::V1::UsersController < ApplicationController
         @Users = User.all
         render json: @Users
     end
+
+    def update
+      @user.update(user_params)
+    end
     
     def profile
     render json: { user: UserSerializer.new(current_user) }, status: :accepted
@@ -33,6 +37,6 @@ private
      end
 
     def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :password, :score, :experience)
   end
 end

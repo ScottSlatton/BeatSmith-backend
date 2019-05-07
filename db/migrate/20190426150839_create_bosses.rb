@@ -4,7 +4,11 @@ class CreateBosses < ActiveRecord::Migration[5.2]
       t.string :name
       t.integer :level, :default => 1
       t.integer :health, :default => 1
-      t.integer :exp_share, :default => 1
+      t.integer :damage, :default => 1
+      t.integer :armor, :default => 0
+      t.integer :experience, :default => 1
+      t.boolean :defeated, :default => false
+
 
       t.timestamps
     end

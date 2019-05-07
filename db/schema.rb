@@ -19,15 +19,20 @@ ActiveRecord::Schema.define(version: 2019_04_26_175403) do
     t.string "name"
     t.integer "level", default: 1
     t.integer "health", default: 1
-    t.integer "exp_share", default: 1
+    t.integer "damage", default: 1
+    t.integer "armor", default: 0
+    t.integer "experience", default: 1
+    t.boolean "defeated", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "crafts", force: :cascade do |t|
     t.string "name"
-    t.integer "req_score", default: 0
+    t.integer "cost", default: 0
     t.integer "damage", default: 0
+    t.integer "armor", default: 0
+    t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

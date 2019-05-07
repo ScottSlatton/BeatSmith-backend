@@ -1,3 +1,4 @@
 class BossSerializer < ActiveModel::Serializer
-  attributes :id, :name, :health
+  attributes :id, :name, :level, :health, :armor, :damage, :experience, :defeated
+
 end
