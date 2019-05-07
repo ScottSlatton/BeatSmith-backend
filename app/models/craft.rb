@@ -1,2 +1,3 @@
 class Craft < ApplicationRecord
+    
 end

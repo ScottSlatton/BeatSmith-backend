@@ -6,6 +6,7 @@ class CreateCrafts < ActiveRecord::Migration[5.2]
       t.integer :damage, :default => 0
       t.integer :armor, :default => 0
       t.string :type
+      t.integer :level, :default => 1
 
       t.timestamps
     end
