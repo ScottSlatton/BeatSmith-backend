@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
 
-  
+  post 'sessions/create'
   namespace :api do
     namespace :v1 do
-          post '/login', to: 'auth#create'
-      get '/profile', to: 'users#profile'
       resources :users do 
         resources :recruits
-                  end
+                       end
       resources :adventurers
       resources :bosses
       resources :crafts

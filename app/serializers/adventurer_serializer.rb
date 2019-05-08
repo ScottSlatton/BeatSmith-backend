@@ -1,3 +1,3 @@
 class AdventurerSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :name, :health, :armor, :attack
 end

@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.integer :level, :default => 1
       t.integer :experience, :default => 0
       t.string :friend_code
+      t.integer :ore, :default => 0
       t.integer :highest_combo, :default => 0
       t.integer :highest_score, :default => 0
       t.string :password_digest
