@@ -1,3 +1,3 @@
 class Adventurer < ApplicationRecord
-    has_many :recruits
+    belongs_to :user
 end

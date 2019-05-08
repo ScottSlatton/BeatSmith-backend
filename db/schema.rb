@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_07_221933) do
+ActiveRecord::Schema.define(version: 2019_05_07_210533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,8 +18,12 @@ ActiveRecord::Schema.define(version: 2019_05_07_221933) do
   create_table "adventurers", force: :cascade do |t|
     t.string "name"
     t.integer "level", default: 1
+    t.integer "attack", default: 1
+    t.integer "armor", default: 1
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_adventurers_on_user_id", unique: true
   end
 
   create_table "bosses", force: :cascade do |t|
@@ -45,20 +49,12 @@ ActiveRecord::Schema.define(version: 2019_05_07_221933) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "recruits", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "adventurer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["adventurer_id"], name: "index_recruits_on_adventurer_id"
-    t.index ["user_id"], name: "index_recruits_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.integer "level", default: 1
     t.integer "experience", default: 0
     t.string "friend_code"
+    t.integer "ore", default: 0
     t.integer "highest_combo", default: 0
     t.integer "highest_score", default: 0
     t.string "password_digest"
@@ -66,4 +62,5 @@ ActiveRecord::Schema.define(version: 2019_05_07_221933) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "adventurers", "users"
 end
