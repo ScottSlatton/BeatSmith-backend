@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2019_05_07_221933) do
   enable_extension "plpgsql"
 
   create_table "adventurers", force: :cascade do |t|
+    t.string "name"
     t.integer "level", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -45,10 +46,12 @@ ActiveRecord::Schema.define(version: 2019_05_07_221933) do
   end
 
   create_table "recruits", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "adventurer_id"
+    t.bigint "user_id"
+    t.bigint "adventurer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["adventurer_id"], name: "index_recruits_on_adventurer_id"
+    t.index ["user_id"], name: "index_recruits_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
