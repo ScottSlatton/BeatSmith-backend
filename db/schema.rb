@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2019_05_07_210533) do
     t.integer "ore", default: 0
     t.integer "highest_combo", default: 0
     t.integer "highest_score", default: 0
+    t.integer "click_strength", default: 1
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

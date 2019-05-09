@@ -41,6 +41,6 @@ private
   end
 
   def user_params
-    params.require(:user).permit(:id, :username, :password, :score, :experience, :level, :friend_code, :highest_combo, :highest_score )
+    params.require(:user).permit(:id, :username, :password, :score, :experience, :level, :friend_code, :highest_combo, :highest_score, :ore, :click_strength )
   end
 end

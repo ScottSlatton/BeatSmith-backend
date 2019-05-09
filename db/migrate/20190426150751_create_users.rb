@@ -8,6 +8,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.integer :ore, :default => 0
       t.integer :highest_combo, :default => 0
       t.integer :highest_score, :default => 0
+      t.integer :click_strength, :default => 1
       t.string :password_digest
 
       t.timestamps
