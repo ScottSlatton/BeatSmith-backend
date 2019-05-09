@@ -8,7 +8,6 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def update
-
     @User.update(user_params)
     render json: @User
   end
@@ -38,6 +37,11 @@ private
 
   def find_user
     @User = User.find(params[:id])
+
+    if !@User 
+      render json: { error: 'Failed to find user. Please Log In.' }, status: :not_acceptable
+    end
+    
   end
 
   def user_params
