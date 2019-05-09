@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
 
+  resources :levels
   post 'sessions/create'
   namespace :api do
     namespace :v1 do
       resources :users do
         resources :adventurers
+      end
+      resources :levels do
+        resource :bosses
       end
   
       resources :adventurers

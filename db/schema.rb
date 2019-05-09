@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_07_210533) do
+ActiveRecord::Schema.define(version: 2019_05_09_155404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,14 +28,14 @@ ActiveRecord::Schema.define(version: 2019_05_07_210533) do
 
   create_table "bosses", force: :cascade do |t|
     t.string "name"
-    t.integer "level", default: 1
+    t.bigint "level_id", default: 1
     t.integer "health", default: 1
     t.integer "damage", default: 1
     t.integer "armor", default: 0
     t.integer "experience", default: 1
-    t.boolean "defeated", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["level_id"], name: "index_bosses_on_level_id"
   end
 
   create_table "crafts", force: :cascade do |t|
@@ -45,6 +45,11 @@ ActiveRecord::Schema.define(version: 2019_05_07_210533) do
     t.integer "armor", default: 0
     t.string "type"
     t.integer "level", default: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "levels", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
