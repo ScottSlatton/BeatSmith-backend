@@ -9,7 +9,7 @@ class Api::V1::UsersController < ApplicationController
 
   def update
     @User.update(user_params)
-    render json: @User
+    render json: {message: "Game Saved"}
   end
     
   def profile
