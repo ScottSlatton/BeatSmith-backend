@@ -1,3 +1,3 @@
 class Level < ApplicationRecord
-    has_many :bosses
+    has_many :monsters
 end

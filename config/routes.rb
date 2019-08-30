@@ -8,12 +8,12 @@ Rails.application.routes.draw do
         resources :adventurers
       end
       resources :levels do
-        resources :bosses
+        resources :monsters
         resources :adventurers
       end
   
       resources :adventurers
-      resources :bosses
+      resources :monsters
       resources :crafts
         end
   end

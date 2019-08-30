@@ -1,6 +1,6 @@
-class CreateBosses < ActiveRecord::Migration[5.2]
+class CreateMonsters < ActiveRecord::Migration[5.2]
   def change
-    create_table :bosses do |t|
+    create_table :monsters do |t|
       t.string :name
       t.references :level, :default => 1
       t.integer :health, :default => 1

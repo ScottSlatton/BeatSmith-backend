@@ -1,28 +1,28 @@
-class Api::V1::BossesController < ApplicationController
-    before_action :find_boss, only:[:show]
+class Api::V1::MonstersController < ApplicationController
+    before_action :find_monster, only:[:show]
     def index
-        @Bosses = Boss.all
-        render json: @Bosses
+        @Monsters = Monster.all
+        render json: @Monsters
     end
 
     def show
-        render json: @Boss
+        render json: @Monster
     end
 
  def create
-    @Boss = Boss.create(boss_params)
-    if @Boss.save
-      render json: { user: BossSerializer.new(@Boss)}, status: :created
+    @Monster = Monster.create(monster_params)
+    if @Monster.save
+      render json: { user: MonsterSerializer.new(@Monster)}, status: :created
     else
-      render json: { error: 'Failed to Create Boss' }, status: :not_acceptable
+      render json: { error: 'Failed to Create Monster' }, status: :not_acceptable
     end
   end
 
-    def boss_params
-        params.require(:boss).permit(:name, :damage, :level, :experience, :health, :armor, :damage)
+    def monster_params
+        params.require(:monster).permit(:name, :damage, :level, :experience, :health, :armor, :damage)
     end
 
-    def find_boss
-    @Boss = Boss.find(params[:id])
+    def find_monster
+    @Monster = Monster.find(params[:id])
   end
 end
