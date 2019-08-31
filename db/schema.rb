@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_05_09_155404) do
     t.index ["user_id"], name: "index_adventurers_on_user_id", unique: true
   end
 
-  create_table "monsters", force: :cascade do |t|
+  create_table "bosses", force: :cascade do |t|
     t.string "name"
     t.bigint "level_id", default: 1
     t.integer "health", default: 1
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2019_05_09_155404) do
     t.integer "experience", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["level_id"], name: "index_monsters_on_level_id"
+    t.index ["level_id"], name: "index_bosses_on_level_id"
   end
 
   create_table "crafts", force: :cascade do |t|
@@ -52,6 +52,19 @@ ActiveRecord::Schema.define(version: 2019_05_09_155404) do
   create_table "levels", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "monsters", force: :cascade do |t|
+    t.string "name"
+    t.bigint "level_id", default: 1
+    t.integer "health", default: 1
+    t.integer "damage", default: 1
+    t.integer "armor", default: 0
+    t.integer "experience", default: 1
+    t.integer "gold", default: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["level_id"], name: "index_monsters_on_level_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -7,7 +7,7 @@ class CreateMonsters < ActiveRecord::Migration[5.2]
       t.integer :damage, :default => 1
       t.integer :armor, :default => 0
       t.integer :experience, :default => 1
-
+      t.integer :gold, :default => 1
 
       t.timestamps
     end
